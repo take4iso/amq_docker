@@ -15,7 +15,7 @@ services:
       dockerfile: Dockerfile
       args:
         #オーバーライドするファイルを指定
-        CONFIGFILE: node_broker.xml
+        CONFIGFILE: node1_broker.xml
     environment:
       - ARTEMIS_USER=admin
       - ARTEMIS_PASSWORD=admin
@@ -31,7 +31,7 @@ services:
       dockerfile: Dockerfile
       args:
         #オーバーライドするファイルを指定
-        CONFIGFILE: node_broker.xml
+        CONFIGFILE: node2_broker.xml
     environment:
       - ARTEMIS_USER=admin
       - ARTEMIS_PASSWORD=admin
@@ -47,7 +47,7 @@ services:
       dockerfile: Dockerfile
       args:
         #オーバーライドするファイルを指定
-        CONFIGFILE: node_broker.xml
+        CONFIGFILE: node3_broker.xml
     environment:
       - ARTEMIS_USER=admin
       - ARTEMIS_PASSWORD=admin

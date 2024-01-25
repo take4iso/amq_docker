@@ -26,7 +26,7 @@ under the License.
    <core xmlns="urn:activemq:core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="urn:activemq:core ">
 
-      <name>0.0.0.0</name>
+      <name>node3</name>
 
 
       <persistence-enabled>true</persistence-enabled>
@@ -150,11 +150,11 @@ under the License.
       <global-max-messages>-1</global-max-messages>
       
       <connectors>
-         <connector name="netty-connector">tcp://0.0.0.0:61616</connector>
+         <connector name="netty-connector">tcp://localhost:61616</connector>
       </connectors>
 
       <acceptors>
-         <acceptor name="netty-acceptor">tcp://0.0.0.0:61616</acceptor>
+         <acceptor name="netty-acceptor">tcp://localhost:61616</acceptor>
       </acceptors>
 
       <!-- クラスターの設定 -->
