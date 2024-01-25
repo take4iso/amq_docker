@@ -5,40 +5,42 @@ volumes:
   node2_storage:
   node3_storage:
 
+
+
 services:
   node1:
     container_name: node1
-    build:
-      context: ActiveMQ/
-      dockerfile: Dockerfile
-      args:
-        - CONFIG=node1_broker.xml
+    image: apache/activemq-artemis:latest-alpine
+    environment:
+      - ARTEMIS_USER=artemis
+      - ARTEMIS_PASSWORD=artemis
+      - EXTRA_ARGS=--http-host node1 --relax-jolokia
     ports:
       - 8081:8161
     volumes:
       - node1_storage:/var/lib/artemis-instance
 
-#  node2:
-#    container_name: node2
-#    build:
-#      context: ActiveMQ/
-#      dockerfile: Dockerfile
-#      args:
-#        - CONFIG=node2_broker.xml
-#    ports:
-#      - 8082:8161
-#    volumes:
-#      - node2_storage:/var/lib/artemis-instance
+  node2:
+    container_name: node2
+    image: apache/activemq-artemis:latest-alpine
+    environment:
+      - ARTEMIS_USER=artemis
+      - ARTEMIS_PASSWORD=artemis
+      - EXTRA_ARGS=--http-host node2 --relax-jolokia
+    ports:
+      - 8082:8161
+    volumes:
+      - node2_storage:/var/lib/artemis-instance
 
-#  node3:
-#    container_name: node3
-#    build:
-#      context: ActiveMQ/
-#      dockerfile: Dockerfile
-#      args:
-#        - CONFIG=node3_broker.xml
-#    ports:
-#      - 8083:8161
-#    volumes:
-#      - node3_storage:/var/lib/artemis-instance
+  node3:
+    container_name: node3
+    image: apache/activemq-artemis:latest-alpine
+    environment:
+      - ARTEMIS_USER=artemis
+      - ARTEMIS_PASSWORD=artemis
+      - EXTRA_ARGS=--http-host node3 --relax-jolokia
+    ports:
+      - 8083:8161
+    volumes:
+      - node3_storage:/var/lib/artemis-instance
 
