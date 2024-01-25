@@ -150,11 +150,11 @@ under the License.
       <global-max-messages>-1</global-max-messages>
       
       <connectors>
-         <connector name="netty-connector">tcp://localhost:61616</connector>
+         <connector name="netty-connector">tcp://node3:61616</connector>
       </connectors>
 
       <acceptors>
-         <acceptor name="netty-acceptor">tcp://localhost:61616</acceptor>
+         <acceptor name="netty-acceptor">tcp://node3:61616</acceptor>
       </acceptors>
 
       <!-- クラスターの設定 -->
