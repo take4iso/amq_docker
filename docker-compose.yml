@@ -10,11 +10,15 @@ volumes:
 services:
   node1:
     container_name: node1
-    image: apache/activemq-artemis:latest-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        #オーバーライドするファイルを指定
+        CONFIGFILE: node_broker.xml
     environment:
-      - ARTEMIS_USER=artemis
-      - ARTEMIS_PASSWORD=artemis
-      - EXTRA_ARGS=--http-host node1 --relax-jolokia
+      - ARTEMIS_USER=admin
+      - ARTEMIS_PASSWORD=admin
     ports:
       - 8081:8161
     volumes:
@@ -22,11 +26,15 @@ services:
 
   node2:
     container_name: node2
-    image: apache/activemq-artemis:latest-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        #オーバーライドするファイルを指定
+        CONFIGFILE: node_broker.xml
     environment:
-      - ARTEMIS_USER=artemis
-      - ARTEMIS_PASSWORD=artemis
-      - EXTRA_ARGS=--http-host node2 --relax-jolokia
+      - ARTEMIS_USER=admin
+      - ARTEMIS_PASSWORD=admin
     ports:
       - 8082:8161
     volumes:
@@ -34,11 +42,15 @@ services:
 
   node3:
     container_name: node3
-    image: apache/activemq-artemis:latest-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        #オーバーライドするファイルを指定
+        CONFIGFILE: node_broker.xml
     environment:
-      - ARTEMIS_USER=artemis
-      - ARTEMIS_PASSWORD=artemis
-      - EXTRA_ARGS=--http-host node3 --relax-jolokia
+      - ARTEMIS_USER=admin
+      - ARTEMIS_PASSWORD=admin
     ports:
       - 8083:8161
     volumes:
