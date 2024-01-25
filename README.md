@@ -12,7 +12,8 @@
 
 ## 起動について
 ```
-docker-compose up -d
+docker compose build
+docker compose up -d
 ```
 コンテナのエントリーポイントは[/opt/activemq-artemis/docker/docker-run.sh](./docker-run.sh)  
 ここでブローカーを初期化している。初期化処理で /etc/broker.xmlを生成している。docker run実行時のARGで初期化に必要なパラメータを指定する。
