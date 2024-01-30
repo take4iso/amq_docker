@@ -47,18 +47,12 @@ EXTRA_ARGSはartemis createコマンドの引数と同じものを指定する�
   - ディスカバリーグループはブロードキャスト エンドポイント (UDP マルチキャスト アドレスまたは JGroup チャネル) からコネクタ情報を受信する方法を定義
 
 
-ブロードキャストグループの設定例（broker.xml）
+# コマンドラインでの操作
+## コマンドラインツールの起動
 ```
-<broadcast-groups>
-   <broadcast-group name="my-broadcast-group">
-    <local-bind-address>172.16.9.3</local-bind-address>
-    <local-bind-port>5432</local-bind-port>
-    <group-address>231.7.7.7</group-address>
-    <group-port>9876</group-port>
-    <broadcast-period>2000</broadcast-period>
-    <connector-ref>netty-connector</connector-ref>
-   </broadcast-group>
-</broadcast-groups>
+docker exec -it node1 /var/lib/artemis-instance/bin/artemis shell --user admin --password admin
 ```
-  - name : 一意の名前
-  - 
+接続するサーバーを聞かれるので、node1に接続する場合は以下のように入力する。
+```
+tcp://node1:61616
+``` 
